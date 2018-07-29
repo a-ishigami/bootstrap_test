@@ -1,6 +1,6 @@
 // [定数] webpack の出力オプションを指定します
 
-//
+// cssファイルを用意してstyleタグで読ませるためのプラグイン
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // 'production' か 'development' を指定

@@ -1,3 +1,9 @@
+/*
+Bootstrapのデフォルトの変数をカスタマイズする
+参照
+https://getbootstrap.com/docs/4.0/getting-started/theming/#sass-options
+ */
+
 // 例えば角丸設定を上書きする
 $enable-rounded: false;
 
@@ -14,3 +20,6 @@ $font-family-base: serif;
 
 /* Bootstrap を読み込む */
 @import "~bootstrap/scss/bootstrap.scss";
+
+/* カスタマイズCSSを読み込む */
+@import "custom.scss";
