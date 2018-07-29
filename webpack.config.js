@@ -1,9 +1,18 @@
+// [定数] webpack の出力オプションを指定します
+
+//
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+// 'production' か 'development' を指定
+// モード値を production に設定すると最適化された状態で、
+// development に設定するとソースマップ有効でJSファイルが出力される
+const MODE = 'development';
+
+// ソースマップの利用有無(productionのときはソースマップを利用しない)
+const enabledSourceMap = (MODE === 'development');
+
 module.exports = {
-  // モード値を production に設定すると最適化された状態で、
-  // development に設定するとソースマップ有効でJSファイルが出力される
-  mode: 'development',
+  mode: MODE,
 
   // ローカル開発用環境を立ち上げる
   // 実行時にブラウザが自動的に localhost を開く
@@ -17,6 +26,7 @@ module.exports = {
       {
         // 対象となるファイルの拡張子(scss)
         test: /\.scss$/,
+
         // Sassファイルの読み込みとコンパイル
         use: ExtractTextPlugin.extract([
           // CSSをバンドルするための機能
@@ -33,6 +43,7 @@ module.exports = {
               importLoaders: 2
             },
           },
+
           // PostCSSのための設定
           {
             loader: 'postcss-loader',
@@ -43,6 +54,7 @@ module.exports = {
               plugins: () => [require('autoprefixer')]
             },
           },
+
           // Sassをバンドルするための機能
           {
             loader: 'sass-loader',
@@ -55,9 +67,12 @@ module.exports = {
       },
     ],
   },
+
+  // cssファイルを用意してstyleタグで読ませるためのプラグイン
   plugins: [
     new ExtractTextPlugin('style.css'),
   ],
+
   // source-map方式でないと、CSSの元ソースが追跡できないため
   devtool: "source-map"
 };

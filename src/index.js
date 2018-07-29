@@ -2,4 +2,4 @@
 import 'bootstrap';
 
 // スタイルシートを読み込む
-import './index.scss';
+import './scss/index.scss';

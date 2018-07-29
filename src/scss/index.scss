@@ -14,15 +14,3 @@ $font-family-base: serif;
 
 /* Bootstrap を読み込む */
 @import "~bootstrap/scss/bootstrap.scss";
-
-.wrapper {
-  width: 80%;
-}
-h1 {
-  font-size: 4rem;
-  font-weight: 600;
-  color: #8C96BE;
-}
-.wf-notosansjapanese {
-  font-family: "Noto Sans Japanese";
-}
